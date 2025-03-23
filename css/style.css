@@ -1,0 +1,541 @@
+/* Tüm öğeler kutu modeli */
+* {
+  box-sizing: border-box;
+}
+
+/* Genel stil */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #003366; /* Koyu mavi yazılar */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+  background-attachment: fixed;
+}
+
+/* Navbar responsive düzen */
+.navbar {
+  background: rgba(255, 255, 255, 0.4); /* Hafif şeffaf */
+  backdrop-filter: blur(10px); /* Blur efekti */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 102, 204, 0.3); /* İnce mavi çerçeve */
+  border-radius: 20px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  width: 90%;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-brand {
+  color: #004080;
+  font-weight: 700;
+  font-size: 2rem; /* Başlık biraz daha büyük */
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+  color: #0077cc;
+}
+
+.navbar-nav .nav-link {
+  color: #004080;
+  font-weight: 600; /* Daha kalın font */
+  font-size: 1.2rem; /* Yazı biraz daha büyük */
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #fff;
+  background-color: #0077cc;
+  box-shadow: 0 4px 8px rgba(0, 119, 204, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Aşk Sayacı ve Timer */
+.counter-container {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.counter-title-container {
+  width: 60%;
+}
+
+.counter-title {
+  display: block;
+  font-size: 2.5rem;
+  color: #004080;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.counter-title:hover {
+  color: #0077cc;
+}
+
+.timer-container {
+  width: 60%;
+}
+
+.timer {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 102, 204, 0.3);
+  border-radius: 20px;
+  padding: 20px 40px;
+  display: block;
+  font-size: 2rem;
+  color: #004080;
+  font-weight: 600;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.timer:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Ay Butonları */
+.month-buttons button {
+  background-color: #0077cc;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 10px 20px;
+  transition: 0.3s;
+}
+
+.month-buttons button:hover {
+  background-color: #3399ff;
+  transform: scale(1.05);
+}
+
+/* Fotoğraf Galerisi */
+#gallery-container img {
+  width: 250px;
+  height: auto;
+  margin: 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#gallery-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+#year-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.year-button {
+  background-color: #004080;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.year-button:hover {
+  background-color: #0077cc;
+}
+
+#photo-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.photo-item {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  margin: 10px;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.photo-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Modal Yapısı */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  object-fit: contain;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  color: #fff;
+  font-size: 50px;
+  user-select: none;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.prev:hover, .next:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+/* Modal yapı */
+.modal {
+  display: none; /* Başlangıçta gizli */
+  position: fixed;
+  z-index: 9999;
+  padding-top: 0; /* Varsayılan boşlukları sıfırla */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Scroll gerekirse */
+  background-color: rgba(0,0,0,0.8); /* Koyu arkaplan, fotoğraf öne çıkıyor */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal içeriği */
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  object-fit: contain;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+/* Close butonu */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Sağ/sol ok */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  color: #fff;
+  font-size: 50px;
+  user-select: none;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.prev:hover, .next:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+  .navbar {
+    width: 95%;
+    padding: 8px 12px;
+    margin: 10px auto;
+  }
+
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+
+  .counter-container {
+    margin-top: 60px;
+    gap: 15px;
+  }
+
+  .counter-title-container, .timer-container {
+    width: 90%;
+  }
+
+  .counter-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .timer {
+    font-size: 1.5rem;
+    padding: 15px 25px;
+  }
+
+  .month-buttons button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  #gallery-container img {
+    width: 150px;
+    margin: 8px;
+  }
+
+  #photo-container {
+    gap: 10px;
+  }
+
+  .photo-item {
+    width: 150px;
+    height: 150px;
+    margin: 8px;
+  }
+
+  .modal-content {
+    max-width: 95%;
+    max-height: 70%;
+  }
+
+  .prev, .next {
+    font-size: 24px;
+    padding: 5px;
+  }
+
+  .close {
+    font-size: 28px;
+    right: 20px;
+    top: 20px;
+  }
+}
+/* Ay ve fotoğraf butonları */
+#monthsContainer button {
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+#monthsContainer button:hover {
+  transform: scale(1.1);
+}
+
+/* Galeri fotoğrafları */
+.gallery-photo {
+  width: 250px; /* Telefonla çekilen boyutlara göre ayarlayabilirsin */
+  height: auto;
+  border-radius: 12px;
+  transition: opacity 0.5s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-photo:hover {
+  transform: scale(1.05);
+}
+
+
+/* slidebox fotoğrafları */
+/* Slider Kapsayıcısı */
+.photo-slider-container {
+  width: 100%; /* Tam genişlikte olsun, ancak içeriği sabit tutacağız */
+  max-width: 600px; /* Maksimum genişlik */
+  height: 400px; /* Sabit yükseklik */
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin: auto;
+}
+
+/* Fotoğraf boyutu ve geçiş efekti */
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fotoğrafın sabit boyutlu alana düzgün yerleşmesi */
+  transition: opacity 0.5s ease-in-out; /* Fade-in / Fade-out efekti */
+  border-radius: 20px;
+}
+
+/* Butonlar */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 123, 255, 0.7); /* Mavi tonu */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.slider-btn:hover {
+  background-color: rgba(0, 123, 255, 1);
+}
+
+.left-btn {
+  left: 10px;
+}
+
+.right-btn {
+  right: 10px;
+}
+
+/* Daha dar ekranlar için */
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  .counter-title {
+    font-size: 1.5rem;
+  }
+
+  .timer {
+    font-size: 1.2rem;
+  }
+
+  .month-buttons button, .year-button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  #gallery-container img,
+  .photo-item {
+    width: 120px;
+    height: 120px;
+  }
+
+  .modal-content {
+    max-width: 95%;
+    max-height: 60%;
+  }
+}
+.photo-slider-container {
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.slider-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+  border-radius: 20px;
+}
+
+/* Butonlar */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 123, 255, 0.7); /* Mavi tonu */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.slider-btn:hover {
+  background-color: rgba(0, 123, 255, 1);
+}
+
+.left-btn {
+  left: 10px;
+}
+
+.right-btn {
+  right: 10px;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>İnci & Umut</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">İnci ❤️ Umut</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Menüyü Aç">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="galeri.html">Galeri</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Aşk Sayacı -->
+  <div class="counter-container text-center">
+
+    <!-- Başlık kısmı -->
+   <!-- <div class="counter-title-container"> -->
+      <h1 class="counter-title">Aşk Sayacı</h1>
+   <!-- </div>-->
+  
+    <!-- Timer kısmı -->
+    <div class="timer-container">
+        <div class="timer" id="love-timer">
+            <!-- Javascript ile gelen süre buraya yazılıyor -->
+            <span id="years">0</span> Yıl
+            <span id="months">0</span> Ay
+            <span id="days">0</span> Gün
+            <span id="hours">0</span> Saat
+            <span id="minutes">0</span> Dakika
+            <span id="seconds">0</span> Saniye
+          </div>
+    </div>
+  
+  </div>
+      
+  </section>
+  
+  <section id="photoSliderSection" class="d-flex justify-content-center align-items-center mt-5">
+    <div class="photo-slider-container position-relative">
+      <button id="prevBtn" class="slider-btn left-btn">❮</button>
+      
+      <img id="sliderImage" src="slidingphoto/photo1.jpg" alt="Slider Fotoğrafı" class="slider-image">
+  
+      <button id="nextBtn" class="slider-btn right-btn">❯</button>
+    </div>
+  </section>
+  
+  
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (bundle includes Popper!) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="js/background.js"></script>
+  <script src="js/loveTimer.js"></script>
+  <script src="js/slide.js"></script>
+</body>
+</html>
