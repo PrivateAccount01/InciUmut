@@ -1,5 +1,5 @@
 // Fotoğraf sayısını belirleyin (Örneğin, 20 fotoğraf)
-const numberOfPhotos = 4;
+const numberOfPhotos = 7;
 
 // Fotoğraf yolunu dinamik olarak oluşturun
 const sliderPhotos = [];
