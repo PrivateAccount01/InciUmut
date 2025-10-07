@@ -2,14 +2,38 @@ const startDate = new Date("2024-10-11T00:00:00");
 
 function updateTimer() {
   const now = new Date();
-  const diff = now - startDate;
 
-  const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-  const months = Math.floor((diff / (1000 * 60 * 60 * 24 * 30)) % 12);
-  const days = Math.floor((diff / (1000 * 60 * 60 * 24)) % 30);
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
+  let years = now.getFullYear() - startDate.getFullYear();
+  let months = now.getMonth() - startDate.getMonth();
+  let days = now.getDate() - startDate.getDate();
+  let hours = now.getHours() - startDate.getHours();
+  let minutes = now.getMinutes() - startDate.getMinutes();
+  let seconds = now.getSeconds() - startDate.getSeconds();
+
+  // Düzeltmeler (negatif farkları taşı)
+  if (seconds < 0) {
+    seconds += 60;
+    minutes--;
+  }
+  if (minutes < 0) {
+    minutes += 60;
+    hours--;
+  }
+  if (hours < 0) {
+    hours += 24;
+    days--;
+  }
+
+  if (days < 0) {
+    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+    days += prevMonth.getDate();
+    months--;
+  }
+
+  if (months < 0) {
+    months += 12;
+    years--;
+  }
 
   document.getElementById('years').textContent = years;
   document.getElementById('months').textContent = months;
@@ -21,3 +45,5 @@ function updateTimer() {
 
 setInterval(updateTimer, 1000);
 updateTimer();
+
+
