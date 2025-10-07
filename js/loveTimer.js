@@ -43,7 +43,7 @@ function checkAnniversaryRedirect() {
   const diffDays = diff / (1000 * 60 * 60 * 24);
   const oneYear = 365;
 
-  const anniversaryLink = document.querySelector('a[href="yildonumu.html"]');
+ const anniversaryLink = document.getElementById("anniversary-link");
   if (anniversaryLink) anniversaryLink.style.display = "none"; // varsayılan gizli
 
   // 🔹 Tam 1 yıl dolduysa (365 ≤ gün < 366)
