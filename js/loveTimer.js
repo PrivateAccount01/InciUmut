@@ -37,7 +37,7 @@ updateTimer();
 
 // === ANA SAYFA / YILDÖNÜMÜ KONTROLÜ ===
 function checkAnniversaryRedirect() {
-  const now = new Date("2025-10-11T00:00:00");
+  const now = new Date();
   const startDate = new Date("2024-10-11T00:00:00");
   const diff = now - startDate;
   const diffDays = diff / (1000 * 60 * 60 * 24);
