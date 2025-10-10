@@ -3,7 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const songs = [
     { src: "music/İnci Gibi.mp3", title: "İnci Gibi" },
     { src: "music/Aklımda Sen.mp3", title: "Aklımda Sen" },
-
+    { src: "music/Ay İnanmıyorum.mp3", title: "Ay İnanmıyorum" },
+    { src: "music/Kır Papatyası.mp3", title: "Kır Papatyası" },
+    { src: "music/Esmerin Adı Oya (Sarışınlar Çat).mp3", title: "Esmerin Adı Oya (Sarışınlar Çat)" },
+    { src: "music/Felaket.mp3", title: "Felaket" },
+    { src: "music/MECBURUM.mp3", title: "MECBURUM" },
+    { src: "music/Aman Güzel Yavaş Yürü.mp3", title: "Aman Güzel Yavaş Yürü" },
+    { src: "music/Die With A Smile.mp3", title: "Die With A Smile" },
+    { src: "music/Haydi Gel Benimle Ol.mp3", title: "Haydi Gel Benimle Ol" },
+    { src: "music/Bu Kız.mp3", title: "Bu Kız" },
+    { src: "music/Giderdi Hoşuma.mp3", title: "Giderdi Hoşuma" },
   ];
 
   let current = 0;

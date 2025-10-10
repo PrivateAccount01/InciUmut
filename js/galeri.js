@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
           ];
       } else if (year === '2025') {
           return [
-              '01.2025', '02.2025', '03.2025'
+              '01.2025', '02.2025', '03.2025','04.2025', '05.2025', '06.2025', '07.2025', '08.2025', '09.2025'
           ];
       }
       return [];
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const photoFolderPath = `/images/${year}/${month}/`;
 
     // Burada bir değişkenle fotoğraf sayısını ayarlıyoruz
-    const photoCount = 25;  // Fotoğraf sayısını buradan kontrol edebilirsiniz
+    const photoCount = 35;  // Fotoğraf sayısını buradan kontrol edebilirsiniz
 
     const photos = [];
     for (let i = 1; i <= photoCount; i++) {
